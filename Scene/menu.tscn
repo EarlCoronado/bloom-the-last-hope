@@ -1,0 +1,141 @@
+[gd_scene load_steps=10 format=3 uid="uid://dniaqxj1vffdx"]
+
+[ext_resource type="Script" path="res://Scripts/menu.gd" id="1_rc3xy"]
+[ext_resource type="Texture2D" uid="uid://bgrft0jbvyqti" path="res://Assets/sprites/BG.png" id="2_fqe1j"]
+[ext_resource type="FontFile" uid="uid://dxfcdifr07q23" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="3_4t326"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_alusf"]
+texture = ExtResource("2_fqe1j")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d5h08"]
+bg_color = Color(0, 0.47451, 0.992157, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0.00784314, 0.00784314, 0.00784314, 0.6)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_20s3e"]
+bg_color = Color(0, 0.466667, 0.776471, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_esx6b"]
+bg_color = Color(0, 0.266667, 0.619608, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lo2oo"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d68rt"]
+bg_color = Color(0.372549, 0.372549, 0.372549, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -30.0
+offset_top = 23.0
+offset_right = -30.0
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rc3xy")
+
+[node name="Panel" type="Panel" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = -25.0
+offset_right = 32.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_alusf")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -99.0
+offset_top = 22.0
+offset_right = 171.0
+offset_bottom = 135.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 9
+
+[node name="start" type="Button" parent="VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_4t326")
+theme_override_styles/normal = SubResource("StyleBoxFlat_d5h08")
+theme_override_styles/hover = SubResource("StyleBoxFlat_20s3e")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_esx6b")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_lo2oo")
+text = "START GAME"
+
+[node name="quit" type="Button" parent="VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_4t326")
+theme_override_styles/normal = SubResource("StyleBoxFlat_d5h08")
+theme_override_styles/hover = SubResource("StyleBoxFlat_20s3e")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_d68rt")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_lo2oo")
+text = "QUIT"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -383.5
+offset_top = -128.0
+offset_right = 445.5
+offset_bottom = -22.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 6
+theme_override_fonts/font = ExtResource("3_4t326")
+theme_override_font_sizes/font_size = 45
+text = "BLOOM: THE LAST HOPE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/quit" to="." method="_on_quit_pressed"]

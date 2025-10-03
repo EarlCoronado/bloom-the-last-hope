@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://blyafh1l6fxgn"]
+
+[ext_resource type="Script" path="res://Scripts/success_zone.gd" id="1_w5n1g"]
+
+[node name="successZone" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_w5n1g")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
