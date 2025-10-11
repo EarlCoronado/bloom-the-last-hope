@@ -1,7 +1,8 @@
-[gd_scene load_steps=26 format=3 uid="uid://cq6jcb4cqgxmj"]
+[gd_scene load_steps=27 format=3 uid="uid://cq6jcb4cqgxmj"]
 
 [ext_resource type="Script" path="res://Scripts/aman.gd" id="1_7hle5"]
 [ext_resource type="Texture2D" uid="uid://cxqfsgc4hwvj6" path="res://Assets/sprites/mushroomTaveler.png" id="1_nfcas"]
+[ext_resource type="AudioStream" uid="uid://pwbu5lv0f0at" path="res://Assets/music/jump.wav" id="3_1myqh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7o6em"]
 atlas = ExtResource("1_nfcas")
@@ -186,3 +187,7 @@ autoplay = "running"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, -7)
 shape = SubResource("CircleShape2D_e2qny")
+
+[node name="jump_sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_1myqh")
+volume_db = 3.0

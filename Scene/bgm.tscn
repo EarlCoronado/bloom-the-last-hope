@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7rtjsqppixf4"]
+
+[ext_resource type="AudioStream" uid="uid://c12t3l1b2tony" path="res://Assets/music/PitcherPerfectTheme_Loopable.ogg" id="1_vg57f"]
+
+[node name="bgm" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_vg57f")
+autoplay = true
