@@ -1,0 +1,71 @@
+[gd_scene load_steps=11 format=3 uid="uid://davo3qr1iblbw"]
+
+[ext_resource type="Texture2D" uid="uid://d2v1tmv4sep84" path="res://Assets/sprites/Wood_Trap.png" id="1_msqj6"]
+[ext_resource type="PackedScene" uid="uid://cw3ab5ddx6c7r" path="res://Scene/killzone.tscn" id="2_mut5b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p4ers"]
+atlas = ExtResource("1_msqj6")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fdk8n"]
+atlas = ExtResource("1_msqj6")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o14jj"]
+atlas = ExtResource("1_msqj6")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_waavg"]
+atlas = ExtResource("1_msqj6")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dyrvp"]
+atlas = ExtResource("1_msqj6")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ejc7k"]
+atlas = ExtResource("1_msqj6")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g2rhp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p4ers")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fdk8n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o14jj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_waavg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dyrvp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ejc7k")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x17eu"]
+size = Vector2(27, 10)
+
+[node name="spiketraps" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_g2rhp")
+autoplay = "default"
+frame_progress = 0.818624
+
+[node name="killzone" parent="." instance=ExtResource("2_mut5b")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
+position = Vector2(0.5, 11)
+shape = SubResource("RectangleShape2D_x17eu")
