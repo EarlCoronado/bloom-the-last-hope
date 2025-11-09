@@ -172,7 +172,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_e2qny"]
 radius = 7.0
 
-[node name="Aman" type="CharacterBody2D"]
+[node name="Aman" type="CharacterBody2D" groups=["Player"]]
 z_index = 5
 collision_layer = 2
 script = ExtResource("1_7hle5")
@@ -181,13 +181,19 @@ script = ExtResource("1_7hle5")
 texture_filter = 1
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_cv4a6")
-animation = &"jumping"
+animation = &"running"
 autoplay = "running"
+frame_progress = 0.39386
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, -7)
+position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_e2qny")
 
 [node name="jump_sfx" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_1myqh")
 volume_db = 3.0
+
+[node name="ThrowPoint" type="Node2D" parent="."]
+position = Vector2(11, -6)
+
+[node name="CooldownTimer" type="Timer" parent="."]

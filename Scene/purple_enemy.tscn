@@ -1,0 +1,76 @@
+[gd_scene load_steps=10 format=3 uid="uid://d4i646qlb0mxi"]
+
+[ext_resource type="Script" path="res://Scripts/purple_enemy.gd" id="1_4nwch"]
+[ext_resource type="Texture2D" uid="uid://43hyl0hs7biw" path="res://Assets/sprites/slime_purple.png" id="1_n6fph"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iabh5"]
+atlas = ExtResource("1_n6fph")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vy5f1"]
+atlas = ExtResource("1_n6fph")
+region = Rect2(24, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_24fpy"]
+atlas = ExtResource("1_n6fph")
+region = Rect2(48, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0hbnh"]
+atlas = ExtResource("1_n6fph")
+region = Rect2(72, 24, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_40yfo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iabh5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vy5f1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_24fpy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0hbnh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mbk1c"]
+size = Vector2(14, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bx5di"]
+size = Vector2(16, 15)
+
+[node name="purpleEnemy" type="CharacterBody2D" groups=["enemies"]]
+script = ExtResource("1_4nwch")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_40yfo")
+autoplay = "default"
+frame_progress = 0.0455303
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 9)
+shape = SubResource("RectangleShape2D_mbk1c")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_bx5di")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.6
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(1, 5)
+target_position = Vector2(10, 20)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

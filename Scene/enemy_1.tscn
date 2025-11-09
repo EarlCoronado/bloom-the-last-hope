@@ -2,7 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://uevoilh31x5b" path="res://Assets/sprites/slime_green.png" id="1_cv8op"]
 [ext_resource type="Script" path="res://Scripts/enemy_1.gd" id="1_ts750"]
-[ext_resource type="PackedScene" uid="uid://cw3ab5ddx6c7r" path="res://Scene/killzone.tscn" id="2_k22fg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ebf4i"]
 atlas = ExtResource("1_cv8op")
@@ -40,10 +39,13 @@ animations = [{
 "speed": 13.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nteym"]
-size = Vector2(10, 12)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3sees"]
+size = Vector2(14, 6)
 
-[node name="enemy1" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ufwsu"]
+size = Vector2(16, 14)
+
+[node name="enemy1" type="CharacterBody2D" groups=["enemies"]]
 script = ExtResource("1_ts750")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -52,12 +54,20 @@ sprite_frames = SubResource("SpriteFrames_rsj5g")
 autoplay = "default"
 frame_progress = 0.372235
 
-[node name="killzone" parent="." instance=ExtResource("2_k22fg")]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 9)
+shape = SubResource("RectangleShape2D_3sees")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
-texture_filter = 1
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, 5)
-shape = SubResource("RectangleShape2D_nteym")
+shape = SubResource("RectangleShape2D_ufwsu")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.6
 
 [node name="right" type="RayCast2D" parent="."]
 position = Vector2(0, 6)
@@ -66,3 +76,5 @@ target_position = Vector2(11, 0)
 [node name="left" type="RayCast2D" parent="."]
 position = Vector2(-1, 6)
 target_position = Vector2(-9, 0)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

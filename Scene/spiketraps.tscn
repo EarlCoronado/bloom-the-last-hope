@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://davo3qr1iblbw"]
+[gd_scene load_steps=10 format=3 uid="uid://davo3qr1iblbw"]
 
 [ext_resource type="Texture2D" uid="uid://d2v1tmv4sep84" path="res://Assets/sprites/Wood_Trap.png" id="1_msqj6"]
 [ext_resource type="PackedScene" uid="uid://cw3ab5ddx6c7r" path="res://Scene/killzone.tscn" id="2_mut5b"]
@@ -14,10 +14,6 @@ region = Rect2(160, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_o14jj"]
 atlas = ExtResource("1_msqj6")
 region = Rect2(192, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_waavg"]
-atlas = ExtResource("1_msqj6")
-region = Rect2(224, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dyrvp"]
 atlas = ExtResource("1_msqj6")
@@ -38,9 +34,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_o14jj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_waavg")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_dyrvp")
