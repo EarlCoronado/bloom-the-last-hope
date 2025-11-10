@@ -1687,9 +1687,6 @@ position = Vector2(170, 612)
 [node name="purpleEnemy3" parent="enemies" instance=ExtResource("16_n02or")]
 position = Vector2(752, 620)
 
-[node name="purpleEnemy6" parent="enemies" instance=ExtResource("16_n02or")]
-position = Vector2(975, 612)
-
 [node name="purpleEnemy4" parent="enemies" instance=ExtResource("16_n02or")]
 position = Vector2(1105, 581)
 
