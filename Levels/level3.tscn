@@ -2583,6 +2583,3 @@ position = Vector2(4496, 491)
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("14_qpqjr")
 autoplay = true
-
-[node name="bloom2" parent="." instance=ExtResource("13_dob8g")]
-position = Vector2(54, 352)
