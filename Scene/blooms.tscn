@@ -106,7 +106,7 @@ position = Vector2(0, -4)
 scale = Vector2(2.375, 2.375)
 sprite_frames = SubResource("SpriteFrames_oxj53")
 autoplay = "default"
-frame_progress = 0.344074
+frame_progress = 0.494958
 
 [node name="victoryZone" parent="." instance=ExtResource("2_asduu")]
 
